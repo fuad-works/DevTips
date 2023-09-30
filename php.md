@@ -27,3 +27,26 @@ function redirect($url)
     }
 }
 ```
+
+## filter
+
+``` php
+function filter($array, $fn)
+{
+    $filteredArray = [];
+    foreach($array as $item )
+    {
+        if($fn($item))
+        {
+            $filteredArray[] = $item;
+        }
+    }
+
+    return $filteredArray;
+}
+
+//Example
+$fruits = filter($food, function($foodItem) {
+    return $foodItem['type'] == 'fruit';
+}
+```
